@@ -949,7 +949,7 @@ with tab1:
                 insights.append("⚠️ **Moderate Pass Rate**: {:.1f}% pass rate suggests additional support needed.".format(pass_rate))
             
             # Study time analysis
-            avg_study = df['Study_Hours_Per_Week'].mean()
+            avg_study = df['Study_Time_Hours'].mean()
             if avg_study >= 15:
                 insights.append("📚 **Strong Study Habits**: Average {:.1f} hours/week study time is excellent.".format(avg_study))
             else:
@@ -1683,7 +1683,7 @@ with tab5:
     
     with pred_col3:
         # Improvement potential
-        avg_study_time = df['Study_Hours_Per_Week'].mean()
+        avg_study_time = df['Study_Time_Hours'].mean()
         correlation = results['pearson_correlation']['correlation_coefficient']
         potential_gain = abs(correlation) * 10 if abs(correlation) > 0 else 5
         
@@ -1987,15 +1987,15 @@ This comprehensive analysis identified significant factors affecting student per
 ---
 Report End
 """
-        
-        st.download_button(
-            label="📥 Download Statistical Report",
-            data=report_text,
-            file_name="statistical_analysis_report.txt",
-            mime="text/plain",
-            use_container_width=True,
-            type="primary"
-        )
+    
+    st.download_button(
+        label="📥 Download Statistical Report",
+        data=report_text,
+        file_name="statistical_analysis_report.txt",
+        mime="text/plain",
+        use_container_width=True,
+        type="primary"
+    )
     
     with export_tab2:
         st.subheader("📊 Dataset Summary")
